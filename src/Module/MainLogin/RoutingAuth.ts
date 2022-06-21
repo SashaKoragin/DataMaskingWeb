@@ -6,7 +6,6 @@ import { Login } from 'src/app/Security/Ts/Security';
 
 
 const authRoutes: Routes = [
-
     {
         path: 'Login',
         component: Login

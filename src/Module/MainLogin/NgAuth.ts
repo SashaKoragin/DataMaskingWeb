@@ -1,18 +1,13 @@
-import { NgModule } from '@angular/core';
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
 import { AuthRoutingModule } from './RoutingAuth';
 import { Login } from 'src/app/Security/Ts/Security';
-import { AngularMaterialModule } from '../MaterialModule/matrialModule';
+import { AngularMaterialModule } from '../MatrialModule/MatrialModule';
+import { BrowserModule } from '@angular/platform-browser';
 
 
-// export function createConfig(): SignalRConfiguration {
-//   const c = new SignalRConfiguration();
-//   c.logging = true;
-//   c.url = `http://${ServerHost}:8059/signalr`;
-//   return c;
-// }
 
 
 @NgModule({
@@ -21,11 +16,13 @@ import { AngularMaterialModule } from '../MaterialModule/matrialModule';
   ],
   imports: [
     CommonModule,
+    BrowserModule,
     FormsModule,
     AuthRoutingModule,
     AngularMaterialModule,
-    //SignalRModule.forRoot(createConfig),
   ],
+
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 
 })
 export class AuthModule { }

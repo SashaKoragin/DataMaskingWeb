@@ -8,7 +8,7 @@ import { ChildNgAutoModule } from '../ChildModule/ChildNgModule';
 
 const appRoutes: Routes = [
   {
-      path: 'Auto',
+      path: 'App',
       loadChildren: ()=> ChildNgAutoModule,
       canLoad: [AuthInventar],
   }
