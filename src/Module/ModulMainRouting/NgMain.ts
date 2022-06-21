@@ -9,16 +9,16 @@ import { AppRoutingModule } from './RoutingMain';
 
 import { AuthModule } from '../MainLogin/NgAuth';
 import { AngularMaterialModule } from '../MatrialModule/MatrialModule';
-//import { AuthIdentificationSignalR } from 'src/ApiJava/RequestService/RequestService';
-//import { SignalRConfiguration, SignalRModule } from 'ng2-signalr';
-//import { ServerHost } from 'src/ApiJava/ApiService/ApiService';
+import { AuthIdentificationSignalR } from 'src/ApiJava/RequestService/RequestService';
+import { SignalRConfiguration, SignalRModule } from 'ng2-signalr';
+import { ServerHost } from 'src/ApiJava/ApiService/ApiService';
 
-// export function createConfig(): SignalRConfiguration {
-//   const c = new SignalRConfiguration();
-//   c.logging = true;
-//   c.url = `http://${ServerHost}:8059/signalr`;
-//   return c;
-// }
+export function createConfig(): SignalRConfiguration {
+  const c = new SignalRConfiguration();
+  c.logging = true;
+  c.url = `http://${ServerHost}:8059/signalr`;
+  return c;
+}
 
 
 @NgModule({
@@ -32,11 +32,11 @@ import { AngularMaterialModule } from '../MatrialModule/MatrialModule';
     HttpClientModule,
     NgxPermissionsModule.forRoot(),
     AngularMaterialModule,
-   // SignalRModule.forRoot(createConfig),
+    SignalRModule.forRoot(createConfig),
    
 
   ],
-//  providers:[AuthIdentificationSignalR],
+  providers:[AuthIdentificationSignalR],
   declarations: [
     MainComponent
   ],

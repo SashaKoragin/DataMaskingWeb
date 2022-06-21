@@ -5,7 +5,7 @@ import { NgxPermissionsService } from 'ngx-permissions';
 import { NavigationExtras, Router } from '@angular/router';
 import { AdressService, ServerHost } from '../ApiService/ApiService';
 import { Observable } from 'rxjs';
-//import { ConnectionStatus, IConnectionOptions, ISignalRConnection, SignalR } from 'ng2-signalr';
+import { ConnectionStatus, IConnectionOptions, ISignalRConnection, SignalR } from 'ng2-signalr';
 const url: AdressService = new AdressService();
 const httpOptionsJson = {
   headers: new HttpHeaders({ 'Content-Type': 'application/json' })
@@ -14,75 +14,75 @@ const httpOptionsJson = {
 
 
 
-// @Injectable({
-//   providedIn: 'root'
-// })
+@Injectable({
+  providedIn: 'root'
+})
 
-// export class AuthIdentificationSignalR {
+export class AuthIdentificationSignalR {
 
-//   constructor(public signalR: SignalR) { }
+  constructor(public signalR: SignalR) { }
 
-//   public iduser: string | undefined;
-//   public conect!: ISignalRConnection;
-//   public status!: ConnectionStatus;
-//   public autorization!: AuthIdentification;
+  public iduser: string | undefined;
+  public conect!: ISignalRConnection;
+  public status!: ConnectionStatus;
+  public autorization!: AuthIdentification;
 
-//   createconection(autorizationUsers: AuthIdentification) {
-//       try {
-//           this.autorization = autorizationUsers;
-//           var options: IConnectionOptions =
-//           {
-//               hubName: 'SignalRinventory',
-//               qs: { iduser: autorizationUsers.user.idUser, user: autorizationUsers.user.nameUser, tabelnumbers: autorizationUsers.user.personnelNumber },
-//               url: `http://${ServerHost}:8059/signalr`,
-//               executeErrorsInZone: true,
-//               executeEventsInZone: true,
-//               executeStatusChangeInZone: true
-//               //Можно задать ping интервал
-//           }
-//           this.conect = this.signalR.createConnection(options);
-//           this.statusSubscriSignalR()
-//       } catch (e:any) {
-//           alert(e.toString());
-//       }
-//   }
+  createconection(autorizationUsers: AuthIdentification) {
+      try {
+          this.autorization = autorizationUsers;
+          var options: IConnectionOptions =
+          {
+              hubName: 'SignalRinventory',
+              qs: { iduser: autorizationUsers.user.idUser, user: autorizationUsers.user.nameUser, tabelnumbers: autorizationUsers.user.personnelNumber },
+              url: `http://${ServerHost}:8059/signalr`,
+              executeErrorsInZone: true,
+              executeEventsInZone: true,
+              executeStatusChangeInZone: true
+              //Можно задать ping интервал
+          }
+          this.conect = this.signalR.createConnection(options);
+          this.statusSubscriSignalR()
+      } catch (e) {
+          alert(e.toString());
+      }
+  }
 
 
-//   //Запуск подписи на событие
-//   async startserverSignalR() {
-//       if (this.status === null) {
-//           await this.conect.start();
-//           this.iduser = this.conect.id
-//           console.log('Запустили сервер!');
-//           console.log('Подписались на статус соединения!');
-//       }
-//   }
+  //Запуск подписи на событие
+  async startserverSignalR() {
+      if (this.status === null) {
+          await this.conect.start();
+          this.iduser = this.conect.id
+          console.log('Запустили сервер!');
+          console.log('Подписались на статус соединения!');
+      }
+  }
 
-//   stopserverSignalR() {
+  stopserverSignalR() {
 
-//       console.log('Отключили роли!');
-//       if (new Array('connected', 'disconnected').some(x => x === this.status.name)) {
-//           console.log('Остановили сервер!');
-//           console.log('Отписались от статуса соединения!');
-//           this.conect.stop();
-//           this.iduser = undefined;
-//           this.status;
-//       }
-//   }
+      console.log('Отключили роли!');
+      if (new Array('connected', 'disconnected').some(x => x === this.status.name)) {
+          console.log('Остановили сервер!');
+          console.log('Отписались от статуса соединения!');
+          this.conect.stop();
+          this.iduser = undefined;
+          this.status;
+      }
+  }
 
-//   private statusSubscriSignalR() {
-//       this.conect.status.subscribe((state: ConnectionStatus) => {
-//           this.status = state;
-//           console.log(state.name);
-//           if (state.name === "disconnected") {
-//               console.log(this.conect.errors);
-//               this.stopserverSignalR();
-//               this.autorization.logoutDisconnect();
-//               alert("Потеря соединения с сайтом Обновите страницу!!!");
-//           }
-//       });
-//   }
-// }
+  private statusSubscriSignalR() {
+      this.conect.status.subscribe((state: ConnectionStatus) => {
+          this.status = state;
+          console.log(state.name);
+          if (state.name === "disconnected") {
+              console.log(this.conect.errors);
+              this.stopserverSignalR();
+              this.autorization.logoutDisconnect();
+              alert("Потеря соединения с сайтом Обновите страницу!!!");
+          }
+      });
+  }
+}
 
 @Injectable({
   providedIn: 'root'
@@ -108,7 +108,7 @@ export class AuthIdentification {
       this.permissionsService.addPermission(this.user.groupRuleServer);
       console.log(this.user.groupRuleServer);
       console.log('Подключили роли!');
-    } catch (e: any) {
+    } catch (e) {
       alert(e.toString());
       
     }
