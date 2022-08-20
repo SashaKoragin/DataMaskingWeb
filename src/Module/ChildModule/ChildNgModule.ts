@@ -15,15 +15,13 @@ import { ChildNgRoutingAutoModule } from './ChildNgRoutingModule';
 
   imports: [
     CommonModule,
-    BrowserModule,
     FormsModule,
     AngularMaterialModule,
     ChildNgRoutingAutoModule,
     NgxPermissionsModule,
     ReactiveFormsModule
   ],
-  declarations: [MainChildBlok,Users,ConnectionString],
-  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
+  declarations: [MainChildBlok, Users, ConnectionString]
 })
 
 export class ChildNgAutoModule { }

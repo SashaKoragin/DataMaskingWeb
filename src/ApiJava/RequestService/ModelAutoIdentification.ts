@@ -1,10 +1,10 @@
 export class UserDtoLoginAndPassword {
-  public idUser: number = 0;
-  public nameUser: string | undefined;
-  public personnelNumber: string | undefined;
-  public loginUser: string | undefined;
-  public passwordsUser: string | undefined;
-  public isError: boolean = false;
-  public errorMessage: string | undefined;
-  public groupRuleServer: string[] = [];
+  public idUserField: number = 0;
+  public nameUserField: string = null;
+  public personnelNumberField: string = null;
+  public loginUserField: string = null;
+  public passwordsUserField: string = null;
+  public isErrorField: boolean = false;
+  public errorMessageField: string = null;
+  public groupRuleServerField: string[] = [];
 }

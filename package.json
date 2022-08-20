@@ -24,6 +24,7 @@
     "class-transformer": "0.1.9",
     "jquery": "^3.4.1",
     "mat-select-filter": "^2.3.6",
+    "material-community-components": "^12.0.0",
     "material-design-icons": "^3.0.1",
     "moment": "^2.24.0",
     "ng2-signalr": "6.1.0",

@@ -20,19 +20,19 @@ export class Report {
       {
         blok: 'Пользователи',
         children: [{
-            blok: undefined,
-            children:  undefined,
+            blok: null,
+            children:  null,
             types: 'Пользователи системы', pages: './Users', model: 'Пользователи системы', isrule: ['Admin']
-        }], types: undefined, pages: undefined, model: undefined, isrule: undefined
+        }], types: null, pages: null, model: null, isrule: null
       },
       {
         blok: 'Строки соединения',
         children: [{
-            blok: undefined,
-            children:  undefined,
+            blok: null,
+            children:  null,
             types: 'Строки соединения', pages: './ConnectionString', model: 'Строки соединения', isrule: ['Admin','Registrator']
-        }], types: undefined, pages: undefined, model: undefined, isrule: undefined
+        }], types: null, pages: null, model: null, isrule: null
       }
-    ], types: undefined, pages: undefined, model: undefined, isrule: undefined
+    ], types: null, pages: null, model: null, isrule: null
   }]);
 }

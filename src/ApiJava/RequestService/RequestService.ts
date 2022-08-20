@@ -22,18 +22,18 @@ export class AuthIdentificationSignalR {
 
   constructor(public signalR: SignalR) { }
 
-  public iduser: string | undefined;
-  public conect!: ISignalRConnection;
-  public status!: ConnectionStatus;
-  public autorization!: AuthIdentification;
+  public iduser: string = null;
+  public conect: ISignalRConnection = null;
+  public status: ConnectionStatus = null;
+  public autorization: AuthIdentification = null;
 
   createconection(autorizationUsers: AuthIdentification) {
       try {
           this.autorization = autorizationUsers;
           var options: IConnectionOptions =
           {
-              hubName: 'SignalRinventory',
-              qs: { iduser: autorizationUsers.user.idUser, user: autorizationUsers.user.nameUser, tabelnumbers: autorizationUsers.user.personnelNumber },
+              hubName: 'SocketDataMasking',
+              qs: { iduser: autorizationUsers.user.idUserField, user: autorizationUsers.user.nameUserField, personnelNumber: autorizationUsers.user.personnelNumberField },
               url: `http://${ServerHost}:8059/signalr`,
               executeErrorsInZone: true,
               executeEventsInZone: true,
@@ -42,6 +42,7 @@ export class AuthIdentificationSignalR {
           }
           this.conect = this.signalR.createConnection(options);
           this.statusSubscriSignalR()
+          this.startserverSignalR()
       } catch (e) {
           alert(e.toString());
       }
@@ -65,8 +66,8 @@ export class AuthIdentificationSignalR {
           console.log('Остановили сервер!');
           console.log('Отписались от статуса соединения!');
           this.conect.stop();
-          this.iduser = undefined;
-          this.status;
+          this.iduser = null;
+          this.status = null;
       }
   }
 
@@ -105,8 +106,8 @@ export class AuthIdentification {
   addRule() {
     try {
       console.log('Подключились к серверу!');
-      this.permissionsService.addPermission(this.user.groupRuleServer);
-      console.log(this.user.groupRuleServer);
+      this.permissionsService.addPermission(this.user.groupRuleServerField);
+      console.log(this.user.groupRuleServerField);
       console.log('Подключили роли!');
     } catch (e) {
       alert(e.toString());

@@ -5,11 +5,11 @@
           <form class="form-signin">
             <h3 class="h3 mt-5 mb-3 font-weight-normal text-primary">АВТОРИЗАЦИЯ</h3>
             <input type="login" id="inputEmail" class=" mt-1 form-control text-primary" placeholder="Логин" required
-              autofocus [(ngModel)]="authService.user.loginUser" [ngModelOptions]="{standalone: true}">
-            <label [style.display]="authService.user.isError ? 'inline':'none'"
-              class="colortext mt-2 mb-3">{{authService.user.errorMessage}}</label>
+              autofocus [(ngModel)]="authService.user.loginUserField" [ngModelOptions]="{standalone: true}">
+            <label [style.display]="authService.user.isErrorField ? 'inline':'none'"
+              class="colortext mt-2 mb-3">{{authService.user.errorMessageField}}</label>
             <input type="password" id="inputPassword" class=" mt-2 form-control text-primary" placeholder="Пароль"
-              required [(ngModel)]="authService.user.passwordsUser" [ngModelOptions]="{standalone: true}">
+              required [(ngModel)]="authService.user.passwordsUserField" [ngModelOptions]="{standalone: true}">
             <button class=" mt-2 btn btn-lg btn-primary btn-block" type="submit"
               [style.display]="authService.IsVisibleButton ? 'none':'block'" (click)="login()">Войти</button>
             <button class=" mt-2 btn btn-lg btn-primary btn-block" type="submit"

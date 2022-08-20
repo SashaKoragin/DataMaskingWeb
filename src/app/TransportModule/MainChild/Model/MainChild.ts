@@ -8,15 +8,15 @@ import { AuthIdentification } from 'src/ApiJava/RequestService/RequestService';
 @Component({
 
   templateUrl: '../Html/MainChild.html',
-  styleUrls: ['../Css/MainChild.css'],
+  styleUrls: [ '../Css/MainChild.css'],
   providers:[Report],
 
 })
 export class MainChildBlok{
 
   constructor(database: Report, public authService: AuthIdentification) {
-     this.welcome = 'Добро пожаловать: ' + authService.user.nameUser;
-     this.rules = authService.user.groupRuleServer;
+     this.welcome = 'Добро пожаловать: ' + authService.user.nameUserField;
+     this.rules = authService.user.groupRuleServerField;
      this.selected = this.rules[0];
     this.nestedTreeControl = new NestedTreeControl<ModelReport>(this._getChildren);
     this.nestedDataSource = new MatTreeNestedDataSource();

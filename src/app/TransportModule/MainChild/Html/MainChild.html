@@ -1,4 +1,4 @@
-<div class="contents align-items-stretch" style="background-image: url('../assets/images/3d.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
+<div class="contents align-items-stretch" style="background-image: url('../assets/Images/3d.jpg'); background-repeat: no-repeat; background-size: cover; background-position: center center;">
     <div class="pl-2 d-flex align-items-end justify-content-between">
     
       <div class="d-flex  h-25 d-inline-block btn btn-primary" (click)="drawer.toggle()">
@@ -37,7 +37,7 @@
             <ng-template [ngxPermissionsOnly]="node.isrule">
                <li>
                   <button class="buttonpadding st btn btn-primary btn-lg" matTreeNodeToggle>
-                     {{node.otdel}}
+                     {{node.blok}}
                   </button>
                <ul [class.tree-invisible]="!nestedTreeControl.isExpanded(node)">
                   <ng-container matTreeNodeOutlet></ng-container>
